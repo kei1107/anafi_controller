@@ -55,3 +55,6 @@ target_link_libraries(${PROJECT_NAME}
         ${OpenCV_LIBRARIES}
         )
 ###################
+
+add_executable(moveTo_test src/node/moveTo_test.cpp)
+target_link_libraries(moveTo_test ${catkin_LIBRARIES} ${PCL_LIBRARIES})
