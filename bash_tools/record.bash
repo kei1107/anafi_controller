@@ -1,0 +1,1 @@
+rosbag record -b 0 -e "/tf|/tf_static|/camera11/color/image_rect|/camera11/color/camera_info|/camera12/color/image_rect|/camear12/color/camera_info|/tello/image_raw|/tello/camera_info|/camera(.*)/points_centroid|/image_saver/save"

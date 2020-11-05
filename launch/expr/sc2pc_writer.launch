@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="nodelet" type="nodelet" name="writer" args="manager" output="screen"/>
+    <node   pkg="nodelet" type="nodelet" name="sc2pc_writer"
+            args="load tello_controller/sc2pc_writer writer"
+            output="screen">
+
+        <!--    <param name="use_bag"         type="bool"   value="true"/>-->
+        <param name="baseFrame" type="string" value="camera7_color_optical_frame"/>
+
+        <param name="target_info_num" type="int" value="12"/>
+
+        <!-- subscribe settings -->
+        <remap from="points1" to="camera1/points_centroid"/>
+        <remap from="points2" to="camera2/points_centroid"/>
+        <remap from="points3" to="camera3/points_centroid"/>
+        <remap from="points4" to="camera4/points_centroid"/>
+        <remap from="points5" to="camera5/points_centroid"/>
+        <remap from="points6" to="camera6/points_centroid"/>
+        <remap from="points7" to="camera7/points_centroid"/>
+        <remap from="points8" to="camera8/points_centroid"/>
+        <remap from="points9" to="camera9/points_centroid"/>
+        <remap from="points10" to="camera10/points_centroid"/>
+        <remap from="points11" to="camera11/points_centroid"/>
+        <remap from="points12" to="camera12/points_centroid"/>
+    </node>
+<!--    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find tello_controller)/rviz/tello_estimate_fq.rviz"/>-->
+</launch>

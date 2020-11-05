@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="tello_controller"  type="filter_param_updater" name="filter_param_updater" output="screen">
+    <param name="mask_file_path"     type="string" value="$(find tello_controller)/mask_data/blue_red_update_sample.txt" />
+  </node>
+</launch>

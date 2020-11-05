@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>anafi_controller</name>
+  <version>0.0.0</version>
+  <description>The anafi_controller package</description>
+
+  <maintainer email="kimura@todo.todo">kimura</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>cv_brige</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>image_geometry</build_depend>
+  <build_depend>message_filters</build_depend>
+  <build_depend>roscpp</build_depend>
+
+  <exec_depend>cv_brige</exec_depend>
+  <exec_depend>image_transport</exec_depend>
+  <exec_depend>image_geometry</exec_depend>
+  <exec_depend>message_filters</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+
+<!-- Nodelet Settings -->
+  <build_depend>pluginlib</build_depend>
+  <build_depend>nodelet</build_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>nodelet</exec_depend>
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+  </export>
+<!-- Nodelet Settings -->
+
+</package>

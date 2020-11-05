@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="namespace" default="tello"/>
+
+    <group ns="$(arg namespace)">
+        <!-- track_marker -->
+        <node name="tello_controller" pkg="tello_controller" type="track_marker">
+            <param name="target_name"   type="string"   value="$(arg namespace)"/>
+            <param name="offsetx"       type="double"   value="0.0"/>
+            <param name="offsety"       type="double"   value="0.0"/>
+            <param name="offsetz"       type="double"   value="-1.0"/>
+        </node>
+    </group>
+</launch>

@@ -1,0 +1,52 @@
+<library path="lib/libanafi_controller">
+    <class name="anafi_controller/color_depth_filter"
+        type="anafi_controller::color_depth_filter"
+        base_class_type="nodelet::Nodelet">
+        <description>
+        </description>
+    </class>
+
+    <class name="anafi_controller/point_cloud_xyzrgb"
+           type="anafi_controller::PointCloudXyzrgbNodelet"
+           base_class_type="nodelet::Nodelet">
+        <description>
+            Nodelet to combine registered depth image and RGB image into XYZRGB point cloud.
+            With remove NaN value
+        </description>
+    </class>
+
+    <class name="anafi_controller/sc2pc_writer"
+           type="anafi_controller::sc2pc_writer"
+           base_class_type="nodelet::Nodelet">
+        <description>
+        </description>
+    </class>
+
+    <class name="anafi_controller/specific_color_to_point_cloud"
+           type="anafi_controller::specific_color_to_point_cloud"
+           base_class_type="nodelet::Nodelet">
+        <description>
+        </description>
+    </class>
+    <class name="anafi_controller/specific_color_to_multi_point_cloud"
+           type="anafi_controller::specific_color_to_multi_point_cloud"
+           base_class_type="nodelet::Nodelet">
+        <description>
+        </description>
+    </class>
+
+    <class name="anafi_controller/tello_position_estimator"
+           type="anafi_controller::tello_position_estimator"
+           base_class_type="nodelet::Nodelet">
+        <description>
+        </description>
+    </class>
+
+    <class name="anafi_controller/track_target_points"
+           type="anafi_controller::track_target_points"
+           base_class_type="nodelet::Nodelet">
+        <description>
+        </description>
+    </class>
+
+</library>

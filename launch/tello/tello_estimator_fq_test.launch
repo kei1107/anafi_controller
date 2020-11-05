@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="nodelet" type="nodelet" name="standalone_nodelet"  args="manager" output="screen"/>
+
+  <node pkg="nodelet" type="nodelet" name="tello_estimator"
+        args="load tello_controller/tello_position_estimator_fixed_q standalone_nodelet"
+        output="screen" >
+
+<!--    <param name="use_bag"         type="bool"   value="true"/>-->
+    <param name="baseFrame"       type="string" value="camera1_color_optical_frame"/>
+    <param name="telloFrame"      type="string" value="telloFrame" />
+
+    <param name="qx"              type="double" value="-0.0265666" />
+    <param name="qy"              type="double" value=" 0.923372" />
+    <param name="qz"              type="double" value=" 0.0125344" />
+    <param name="qw"              type="double" value=" 0.382781" />
+
+    <param name="target_info_num" type="int"    value="1" />
+
+    <!-- subscribe settings -->
+    <remap from="points1"                       to="camera1/points_centroid" />
+  </node>
+</launch>
