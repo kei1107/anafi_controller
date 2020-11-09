@@ -312,15 +312,15 @@ int main(int argc, char **argv) {
     double main_long = 2.36775697536;
     double main_alti = 1.49990868568;
 
-    sleep(3);
+    sleep(1);
     ROS_INFO("start");
     std_msgs::Empty dummy_msg;
     takeoff_pub.publish(dummy_msg);
     ROS_INFO("pub takeoff");
-    sleep(10);
+    sleep(5);
 
     int counter = 0;
-    int MAX_counter = 100;
+    int MAX_counter = 20;
 
     // goto home
     {
@@ -343,7 +343,7 @@ int main(int argc, char **argv) {
         moveTo_pub.publish(twist_msg);
         counter++;
         ROS_INFO("goto home");
-        sleep(10);
+        sleep(5);
     }
 
     while (ros::ok()) {
