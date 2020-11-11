@@ -440,8 +440,8 @@ namespace anafi_controller {
 
             //! TODO : ログデータに応じて変更
             cum_main_wp_time.resize(wp_num, 0.0);
-            for (int i = 1; i < wp_num; i++) {
-                cum_main_wp_time[i] = cum_main_wp_time[i - 1] + main_wp_time[i] + main_wp_time_interval;
+            for (int i = 0; i < wp_num; i++) {
+                cum_main_wp_time[i] = main_wp_time[i] - main_wp_time[0];
             }
         }
 
@@ -550,6 +550,11 @@ namespace anafi_controller {
         size_t wp_id = std::distance(cum_main_wp_time.begin(),
                                      std::upper_bound(cum_main_wp_time.begin(), cum_main_wp_time.end(), elapsed_time));
 
+        NODELET_INFO("=====================================");
+        NODELET_INFO("time section : %lf [s] -> %lf [s]",cum_main_wp_time[wp_id - 1],cum_main_wp_time[wp_id]);
+        NODELET_INFO("elasped time : %lf [s]",elapsed_time);
+        NODELET_INFO("target waypoint id : %d",(int)wp_id);
+
         if (wp_id == wp_num) {
             if(counter < 5){
                 counter++;
@@ -570,12 +575,18 @@ namespace anafi_controller {
                     twist_msg.angular.z = std::get<1>(info);
                     moveTo_pub[num].publish(twist_msg);
                 }
+                return;
             }
+            counter++;
             std_msgs::Empty empty_msg;
             for (int num = 0; num < sub_num; num++) {
                 land_pub[num].publish(empty_msg);
             }
-            return;
+
+            timer_pub_cmd.stop();
+            sub_start_msg.shutdown();
+            ros::shutdown();
+            exit(-1);
         }
 
         auto main_gps_target = calc_target_gps(wp_id,elapsed_time,main_wp_info);
