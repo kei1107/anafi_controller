@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <node   pkg="tello_controller"  type="show_way_point" name="show_way_point" output="screen">
-        <param name="queue_size"        type="int"      value="5" />
-        <param name="wpFrame"           type="string"   value="camera7_color_optical_frame"/>
-<!--        <param name="way_point_file"    type="string"   value="$(find tello_controller)/way_point/20200513/path_minitype.txt" />-->
-        <param name="way_point_file"    type="string"   value="$(find tello_controller)/way_point/20200518/path_minitype.txt" />
-    </node>
-</launch>

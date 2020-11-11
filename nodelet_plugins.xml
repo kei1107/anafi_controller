@@ -1,6 +1,6 @@
 <library path="lib/libanafi_controller">
-    <class name="anafi_controller/track_target_points"
-           type="anafi_controller::track_target_points"
+    <class name="anafi_controller/follow_main_uav"
+           type="anafi_controller::follow_main_uav"
            base_class_type="nodelet::Nodelet">
         <description>
         </description>

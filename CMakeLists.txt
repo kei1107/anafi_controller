@@ -47,7 +47,7 @@ include_directories(
 # nodelet setting #
 ###################
 add_library(${PROJECT_NAME}
-        src/nodelets/track_target_points.cpp
+        src/nodelets/follow_main_uav.cpp
         )
 
 target_link_libraries(${PROJECT_NAME}
