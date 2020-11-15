@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="path"                default="test"/>
+
+    <node pkg="nodelet" type="nodelet" name="controller" args="manager" required="true" output="screen"/>
+    <node pkg="nodelet" type="nodelet" name="track_target"
+          args="load anafi_controller/follow_main_uav controller"
+          output="screen">
+
+        <param name="main_way_point_file" type="string" value="$(find anafi_controller)/way_point/test/main.txt"/>
+        <param name="main_wp_time_interval" type="double" value="0"/>
+
+        <param name="main_way_point_time_file" type="string" value="$(find anafi_controller)/way_point/test/main_time.txt"/>
+
+        <param name="sub_num" type="int" value="4"/>
+        <param name="sub_way_point_file0" type="string" value="$(find anafi_controller)/way_point/$(arg path)/sub0.txt"/>
+        <param name="sub_way_point_file1" type="string" value="$(find anafi_controller)/way_point/$(arg path)/sub1.txt"/>
+        <param name="sub_way_point_file2" type="string" value="$(find anafi_controller)/way_point/$(arg path)/sub2.txt"/>
+        <param name="sub_way_point_file3" type="string" value="$(find anafi_controller)/way_point/$(arg path)/sub3.txt"/>
+
+    </node>
+</launch>

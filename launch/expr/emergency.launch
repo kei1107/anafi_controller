@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="anafi_controller" name="emergency_stop" type="emergency_stop.py" respawn="true" output="screen">
+        <param name="sub_num"   type="int"  value="4"/>
+    </node>
+</launch>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="tf" type="static_transform_publisher" name="map_to_anafi0" output="screen" args="0 0 0 0 0 0 map anafi0 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="map_to_anafi1" output="screen" args="0 0 0 0 0 0 map anafi1 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="map_to_anafi2" output="screen" args="0 0 0 0 0 0 map anafi2 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="map_to_anafi3" output="screen" args="0 0 0 0 0 0 map anafi3 10"/>
+
+    <group ns="anafi0">
+        <!-- ar_track-alvar setting-->
+        <arg name="marker_size" default="15" />
+        <arg name="max_new_marker_error" default="0.08" />
+        <arg name="max_track_error" default="0.2" />
+        <arg name="cam_image_topic" default="img_raw" />
+        <arg name="cam_info_topic" default="camera_info" />
+
+        <arg name="output_frame" default="anafi0" />
+
+        <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="true" output="screen">
+            <param name="marker_size"           type="double" value="$(arg marker_size)" />
+            <param name="max_new_marker_error"  type="double" value="$(arg max_new_marker_error)" />
+            <param name="max_track_error"       type="double" value="$(arg max_track_error)" />
+            <param name="output_frame"          type="string" value="$(arg output_frame)" />
+            <remap from="camera_image"  to="$(arg cam_image_topic)" />
+            <remap from="camera_info"   to="$(arg cam_info_topic)" />
+        </node>
+    </group>
+
+
+    <group ns="anafi1">
+        <!-- ar_track-alvar setting-->
+        <arg name="marker_size" default="15" />
+        <arg name="max_new_marker_error" default="0.08" />
+        <arg name="max_track_error" default="0.2" />
+        <arg name="cam_image_topic" default="img_raw" />
+        <arg name="cam_info_topic" default="camera_info" />
+
+        <arg name="output_frame" default="anafi1" />
+
+        <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="true" output="screen">
+            <param name="marker_size"           type="double" value="$(arg marker_size)" />
+            <param name="max_new_marker_error"  type="double" value="$(arg max_new_marker_error)" />
+            <param name="max_track_error"       type="double" value="$(arg max_track_error)" />
+            <param name="output_frame"          type="string" value="$(arg output_frame)" />
+            <remap from="camera_image"  to="$(arg cam_image_topic)" />
+            <remap from="camera_info"   to="$(arg cam_info_topic)" />
+        </node>
+    </group>
+
+    <group ns="anafi2">
+        <!-- ar_track-alvar setting-->
+        <arg name="marker_size" default="15" />
+        <arg name="max_new_marker_error" default="0.08" />
+        <arg name="max_track_error" default="0.2" />
+        <arg name="cam_image_topic" default="img_raw" />
+        <arg name="cam_info_topic" default="camera_info" />
+
+        <arg name="output_frame" default="anafi2" />
+
+        <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="true" output="screen">
+            <param name="marker_size"           type="double" value="$(arg marker_size)" />
+            <param name="max_new_marker_error"  type="double" value="$(arg max_new_marker_error)" />
+            <param name="max_track_error"       type="double" value="$(arg max_track_error)" />
+            <param name="output_frame"          type="string" value="$(arg output_frame)" />
+            <remap from="camera_image"  to="$(arg cam_image_topic)" />
+            <remap from="camera_info"   to="$(arg cam_info_topic)" />
+        </node>
+    </group>
+
+    <group ns="anafi3">
+        <!-- ar_track-alvar setting-->
+        <arg name="marker_size" default="15" />
+        <arg name="max_new_marker_error" default="0.08" />
+        <arg name="max_track_error" default="0.2" />
+        <arg name="cam_image_topic" default="img_raw" />
+        <arg name="cam_info_topic" default="camera_info" />
+
+        <arg name="output_frame" default="anafi3" />
+
+        <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" respawn="true" output="screen">
+            <param name="marker_size"           type="double" value="$(arg marker_size)" />
+            <param name="max_new_marker_error"  type="double" value="$(arg max_new_marker_error)" />
+            <param name="max_track_error"       type="double" value="$(arg max_track_error)" />
+            <param name="output_frame"          type="string" value="$(arg output_frame)" />
+            <remap from="camera_image"  to="$(arg cam_image_topic)" />
+            <remap from="camera_info"   to="$(arg cam_info_topic)" />
+        </node>
+    </group>
+</launch>

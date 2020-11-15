@@ -454,8 +454,9 @@ namespace anafi_controller {
             for (int num = 0; num < sub_num; num++) {
                 std::string way_point_file_param = "sub_way_point_file" + std::to_string(num);
                 std::string way_point_file;
-
                 private_nh.param(way_point_file_param, way_point_file, std::string(""));
+
+                ROS_INFO("Anafi %d : Read path file [ %s ]", num,way_point_file.c_str());
                 if (way_point_file == std::string("")) {
                     NODELET_FATAL("Parameter not set : sub_way_point_file%d\nStop program.", num);
                     return;
