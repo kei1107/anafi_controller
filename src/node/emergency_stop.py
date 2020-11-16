@@ -58,11 +58,13 @@ class PublishThread(threading.Thread):
             rospy.sleep(0.5)
             i += 1
             i = i % 5
-        
-        for n in range(self.sub_num):
-            print("ok {}".format(self.publishers[n].name))
+
         if rospy.is_shutdown():
             raise Exception("Got shutdown request before subscribers connected")
+
+        for n in range(self.sub_num):
+            print("ok {}".format(self.publishers[n].name))
+
 
     def update(self,update_time):
         self.condition.acquire()
